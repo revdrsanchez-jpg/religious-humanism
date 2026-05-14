@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function PracticeHub() {
   const [breath, setBreath] = useState("Inhale");
@@ -7,7 +8,7 @@ export default function PracticeHub() {
   const [isSyncing, setIsSyncing] = useState(false);
   const [vaultData, setVaultData] = useState({ Mineral: "", Plant: "", Animal: "" });
 
-  // Solar Sync Logic
+  // Solar Sync Logic (6-second total cycles)
   useEffect(() => {
     const interval = setInterval(() => {
       setBreath(prev => prev === "Inhale" ? "Exhale" : "Inhale");
@@ -17,9 +18,12 @@ export default function PracticeHub() {
 
   const handleCommit = () => {
     setIsSyncing(true);
+    // Simulate a broadcast to the ether
     setTimeout(() => {
       setIsSyncing(false);
       alert("Frequency Synchronized. Stewardship Logged to the Ether.");
+      setVaultData({ Mineral: "", Plant: "", Animal: "" });
+      setActiveElement(null);
     }, 2000);
   };
 
@@ -38,7 +42,7 @@ export default function PracticeHub() {
 
       <div className="max-w-6xl mx-auto pt-24 grid lg:grid-cols-2 gap-12 relative z-10">
         
-        {/* 2. THE SOLAR SYNC */}
+        {/* 2. THE SOLAR SYNC (Breathing Tool) */}
         <section className="flex flex-col items-center justify-center p-12 rounded-3xl bg-slate-900/10 border border-teal-500/10 backdrop-blur-sm h-fit">
           <h2 className="text-[10px] tracking-[0.5em] uppercase mb-12 opacity-50">Solar Broadcast Sync</h2>
           <div className={`w-64 h-64 rounded-full border flex items-center justify-center transition-all duration-[3000ms] ${breath === "Inhale" ? "scale-110 border-teal-400 shadow-[0_0_60px_rgba(45,212,191,0.2)]" : "scale-90 border-teal-900 shadow-none"}`}>
@@ -49,7 +53,7 @@ export default function PracticeHub() {
           </p>
         </section>
 
-        {/* 3. THE STEWARDSHIP VAULT */}
+        {/* 3. THE STEWARDSHIP VAULT (Expandable Logs) */}
         <section className="space-y-4">
           <header className="mb-8">
             <h2 className="text-[10px] tracking-[0.5em] uppercase opacity-50 mb-2">Stewardship Vault</h2>
@@ -96,10 +100,15 @@ export default function PracticeHub() {
         </section>
       </div>
 
-      <div className="mt-20 text-center relative z-10 pb-10">
-        <a href="/" className="text-[10px] tracking-[0.4em] uppercase text-slate-600 hover:text-teal-400 transition-colors">
-          ← Return to Temple
-        </a>
+      {/* REFINED NAVIGATION LINK */}
+      <div className="mt-20 text-center relative z-30 pb-10">
+        <Link 
+          href="/" 
+          className="group inline-flex items-center gap-2 text-[10px] tracking-[0.4em] uppercase text-slate-500 hover:text-teal-400 transition-all cursor-pointer"
+        >
+          <span className="transform group-hover:-translate-x-1 transition-transform">←</span>
+          Return to Temple
+        </Link>
       </div>
 
       <style jsx>{`
