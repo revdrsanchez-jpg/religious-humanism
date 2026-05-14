@@ -66,9 +66,11 @@ export default function LandingPage() {
           <div className="inline-block p-[1px] rounded-full bg-gradient-to-r from-transparent via-teal-500 to-transparent">
              <div className="bg-slate-950 rounded-full px-12 py-6">
                 <h2 className="text-2xl font-extralight tracking-[0.3em] uppercase mb-4 text-teal-100">Enter the Stillness</h2>
-                <button className="bg-white text-black px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-teal-400 transition-all active:scale-95">
-                  Begin Sync
-                </button>
+                <a href="/practice">
+  <button className="bg-white text-black px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-teal-400 transition-all active:scale-95">
+    Begin Sync
+  </button>
+</a>
              </div>
           </div>
         </section>
