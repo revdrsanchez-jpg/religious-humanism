@@ -1,138 +1,115 @@
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function LandingPage() {
-  const tenets = [
-    {
-      title: "The Supreme Essence",
-      description: "Guardians of the electric pulse—the essence breathed into us at birth. It is the core of our being and our connection to the creator.",
-      icon: "⚡"
-    },
-    {
-      title: "Universal Stewardship",
-      description: "Protection of all life forms: Mineral, Plant, and Animal. Recognizing the creator within the atomic structure of all things.",
-      icon: "🌍"
-    },
-    {
-      title: "The Open Brain",
-      description: "True understanding comes when the brain is fully open to the frequency of the essence. We act as humble stewards of the pulse.",
-      icon: "🧠"
-    }
-  ];
+export default function PracticeHub() {
+  const [breath, setBreath] = useState("Inhale");
+  const [activeElement, setActiveElement] = useState(null);
+  const [isSyncing, setIsSyncing] = useState(false);
+  const [vaultData, setVaultData] = useState({ Mineral: "", Plant: "", Animal: "" });
+
+  // Solar Sync Logic
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBreath(prev => prev === "Inhale" ? "Exhale" : "Inhale");
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleCommit = () => {
+    setIsSyncing(true);
+    setTimeout(() => {
+      setIsSyncing(false);
+      alert("Frequency Synchronized. Stewardship Logged to the Ether.");
+    }, 2000);
+  };
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-100 font-sans selection:bg-teal-500/30 overflow-x-hidden">
+    <div className="min-h-screen bg-[#020617] text-teal-100 font-mono p-6 overflow-x-hidden relative">
       
-      {/* Energy Field Background */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-teal-900/10 blur-[120px] animate-pulse"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-900/10 blur-[120px] animate-pulse [animation-delay:2s]"></div>
+      {/* 1. THE DIVINE DATA TICKER */}
+      <div className="fixed top-0 left-0 w-full bg-teal-950/30 border-b border-teal-500/20 py-2 z-50">
+        <div className="whitespace-nowrap animate-scroll inline-block">
+          <span className="mx-8 opacity-50 uppercase tracking-[0.3em] text-[10px]">Mineral Essence: Grounded</span>
+          <span className="mx-8 opacity-50 uppercase tracking-[0.3em] text-[10px]">Plant Vitality: Ascending</span>
+          <span className="mx-8 opacity-50 uppercase tracking-[0.3em] text-[10px]">Animal Sentience: Protected</span>
+          <span className="mx-8 opacity-50 uppercase tracking-[0.3em] text-[10px]">System Status: Total Synchronicity</span>
+        </div>
       </div>
 
-      {/* Hero Header */}
-      <header className="relative z-10 pt-32 pb-20 px-6 text-center">
-        <div className="inline-block px-3 py-1 mb-6 border border-teal-500/20 rounded-full bg-teal-500/5 text-teal-400 text-[10px] tracking-[0.4em] uppercase">
-          System Status: Harmonized
-        </div>
-        <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-500">
-          RELIGIOUS <br/>
-          <span className="text-teal-400">HUMANISM</span>
-        </h1>
-        <p className="text-lg text-slate-400 max-w-xl mx-auto font-light tracking-wide italic">
-          "Guardians of the Essence. Stewards of the Pulse."
-        </p>
-      </header>
+      <div className="max-w-6xl mx-auto pt-24 grid lg:grid-cols-2 gap-12 relative z-10">
+        
+        {/* 2. THE SOLAR SYNC */}
+        <section className="flex flex-col items-center justify-center p-12 rounded-3xl bg-slate-900/10 border border-teal-500/10 backdrop-blur-sm h-fit">
+          <h2 className="text-[10px] tracking-[0.5em] uppercase mb-12 opacity-50">Solar Broadcast Sync</h2>
+          <div className={`w-64 h-64 rounded-full border flex items-center justify-center transition-all duration-[3000ms] ${breath === "Inhale" ? "scale-110 border-teal-400 shadow-[0_0_60px_rgba(45,212,191,0.2)]" : "scale-90 border-teal-900 shadow-none"}`}>
+            <span className="text-2xl font-light tracking-[0.2em] uppercase animate-pulse">{breath}</span>
+          </div>
+          <p className="mt-12 text-[9px] text-slate-500 text-center max-w-xs leading-relaxed tracking-[0.2em] uppercase">
+            Synchronize breath with the solar emission to unlock the cellular brain.
+          </p>
+        </section>
 
-      <main className="relative z-10 max-w-7xl mx-auto py-10 px-6">
-        {/* Interactive Tenet Tiles */}
-        <div className="grid lg:grid-cols-3 gap-6">
-          {tenets.map((tenet, index) => (
-            <div key={index} className="group relative p-10 rounded-3xl bg-slate-900/30 border border-white/5 backdrop-blur-xl transition-all duration-500 hover:border-teal-500/40 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(45,212,191,0.15)]">
-              <div className="text-4xl mb-8 transform group-hover:scale-110 transition-transform duration-300">
-                {tenet.icon}
+        {/* 3. THE STEWARDSHIP VAULT */}
+        <section className="space-y-4">
+          <header className="mb-8">
+            <h2 className="text-[10px] tracking-[0.5em] uppercase opacity-50 mb-2">Stewardship Vault</h2>
+            <p className="text-[9px] text-teal-500/40 italic uppercase">Committing acts of protection to the ether</p>
+          </header>
+          
+          {['Mineral', 'Plant', 'Animal'].map((type) => (
+            <div 
+              key={type} 
+              onClick={() => setActiveElement(activeElement === type ? null : type)}
+              className={`group p-6 rounded-2xl bg-slate-900/40 border transition-all duration-500 cursor-pointer ${activeElement === type ? 'border-teal-500 shadow-[0_0_20px_rgba(20,184,166,0.1)]' : 'border-white/5 hover:border-white/20'}`}
+            >
+              <div className="flex justify-between items-center">
+                <span className={`text-xs font-bold tracking-[0.2em] uppercase ${activeElement === type ? 'text-teal-400' : 'text-slate-400'}`}>
+                  {type} Element
+                </span>
+                <span className="text-[10px] opacity-20 uppercase tracking-tighter">
+                  {activeElement === type ? 'Field Open' : 'Monitoring'}
+                </span>
               </div>
-              <h3 className="text-xl font-bold mb-4 text-white group-hover:text-teal-300 transition-colors tracking-tight">
-                {tenet.title}
-              </h3>
-              <p className="text-slate-400 leading-relaxed font-light text-sm">
-                {tenet.description}
-              </p>
+
+              {/* Expandable Area */}
+              <div className={`overflow-hidden transition-all duration-500 ${activeElement === type ? 'max-h-40 mt-6' : 'max-h-0'}`}>
+                <textarea 
+                  autoFocus
+                  onClick={(e) => e.stopPropagation()}
+                  className="w-full bg-slate-950/50 border border-white/5 rounded-lg p-4 outline-none text-sm font-sans text-slate-300 focus:border-teal-500/50 transition-colors"
+                  placeholder={`Record your ${type.toLowerCase()} stewardship...`}
+                  value={vaultData[type]}
+                  onChange={(e) => setVaultData({...vaultData, [type]: e.target.value})}
+                  rows="3"
+                />
+              </div>
             </div>
           ))}
-        </div>
-
-        {/* Call to Action */}
-        <section className="mt-40 mb-40 text-center">
-          <div className="inline-block p-[1px] rounded-full bg-gradient-to-r from-transparent via-teal-500 to-transparent">
-             <div className="bg-slate-950 rounded-full px-12 py-6">
-                <h2 className="text-2xl font-extralight tracking-[0.3em] uppercase mb-4 text-teal-100">Enter the Stillness</h2>
-                <a href="/practice">
-  <button className="bg-white text-black px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-teal-400 transition-all active:scale-95">
-    Begin Sync
-  </button>
-</a>
-             </div>
-          </div>
+          
+          <button 
+            onClick={handleCommit}
+            disabled={isSyncing}
+            className={`w-full py-5 border transition-all text-[10px] font-black tracking-[0.4em] uppercase active:scale-[0.98] ${isSyncing ? 'bg-teal-500 text-black border-teal-500 animate-pulse' : 'bg-teal-500/5 border-teal-500/40 hover:bg-teal-500 hover:text-black'}`}
+          >
+            {isSyncing ? 'Synchronizing Essence...' : 'Commit to the Essence'}
+          </button>
         </section>
+      </div>
 
-        {/* THE GUARDIAN'S COVENANT (The Scripture) */}
-        <section className="max-w-3xl mx-auto py-20 px-6 border-y border-white/5 bg-white/[0.01] rounded-[100px]">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl font-serif italic text-teal-100 mb-4 tracking-widest">The Guardian’s Covenant</h2>
-            <p className="text-slate-500 text-[10px] uppercase tracking-[0.5em]">Morning Attunement</p>
-          </div>
+      <div className="mt-20 text-center relative z-10 pb-10">
+        <a href="/" className="text-[10px] tracking-[0.4em] uppercase text-slate-600 hover:text-teal-400 transition-colors">
+          ← Return to Temple
+        </a>
+      </div>
 
-          <div className="space-y-20">
-            {[
-              { 
-                head: "The Ancient Forge", 
-                body: "I am a Child of the Ancient Forge. My blood carries the iron of fallen stars; my bones, the dust of the celestial furnace. I honor the eons of divine labor that wove this vessel into being." 
-              },
-              { 
-                head: "The Infinite Whisper", 
-                body: "I am the Senses of the Eternal. I am the eyes, the ears, and the heartbeat of the Creator exploring its own vast mystery. I cast aside the noise of the world to hear the Infinite Whisper." 
-              },
-              { 
-                head: "The Sacred Debt", 
-                body: "I acknowledge my place in the Great Web. This day, I vow to give more than I gather. My labor is my prayer. I stand as a shield for all that is fragile." 
-              },
-              { 
-                head: "The Soul’s Return", 
-                body: "I fear no Ending. I know that this body is a gift on loan, but my essence is undying. I am the drop returning to the Deep; I am the spark returning to the Great Sun." 
-              }
-            ].map((creed, i) => (
-              <div key={i} className="text-center max-w-xl mx-auto">
-                <h4 className="text-teal-500/60 text-xs uppercase tracking-[0.3em] mb-4">{creed.head}</h4>
-                <p className="text-slate-300 font-serif italic text-xl leading-relaxed">
-                  "{creed.body}"
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-32 text-center">
-            <div className="text-teal-500/20 text-3xl mb-8">◈ ◈ ◈</div>
-            <p className="text-white tracking-[0.8em] text-[11px] font-bold uppercase">
-              Grounded • Awakened • Sovereign
-            </p>
-          </div>
-        </section>
-      </main>
-
-      <footer className="py-20 text-center">
-        <div className="flex justify-center gap-12 opacity-20 text-[9px] tracking-[0.6em] uppercase mb-8">
-          <span>Mineral</span>
-          <span>Plant</span>
-          <span>Animal</span>
-        </div>
-        <p className="text-slate-700 text-[10px] tracking-widest uppercase">
-          EST. 2026 // ALL LIFE IS SACRED
-        </p>
-      </footer>
-
-      <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:italic,wght@0,200..900;1,200..900&display=swap');
-        .font-serif { font-family: 'Crimson Pro', serif; }
+      <style jsx>{`
+        @keyframes scroll {
+          0% { transform: translateX(80vw); }
+          100% { transform: translateX(-100%); }
+        }
+        .animate-scroll {
+          animation: scroll 25s linear infinite;
+        }
       `}</style>
     </div>
   );
