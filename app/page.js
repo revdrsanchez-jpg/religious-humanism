@@ -87,7 +87,52 @@ export default function LandingPage() {
         </section>
       </main>
 
-      <footer className="relative z-10 py-20 text-center border-t border-white/5">
+      {/* The Guardian's Covenant Section */}
+<section className="max-w-4xl mx-auto py-32 px-6 border-t border-teal-900/20">
+  <div className="text-center mb-16">
+    <h2 className="text-3xl font-serif italic text-teal-200 mb-2 tracking-widest">The Guardian’s Covenant</h2>
+    <p className="text-slate-500 text-xs uppercase tracking-[0.4em]">A Morning Attunement to the Sacred Pulse</p>
+  </div>
+
+  <div className="space-y-12 max-w-2xl mx-auto">
+    {[
+      { 
+        title: "I am a Child of the Ancient Forge", 
+        text: "My blood carries the iron of fallen stars; my bones, the dust of the celestial furnace. I honor the eons of divine labor that wove this vessel into being." 
+      },
+      { 
+        title: "I am the Senses of the Eternal", 
+        text: "I am the eyes, the ears, and the heartbeat of the Creator exploring its own vast mystery. I open myself to the Infinite Whisper." 
+      },
+      { 
+        title: "I feed the Fire of Compassion", 
+        text: "I see the one shared Breath in every sibling—the animal, the leaf, and the seeker. I do not harbor hate; I bring the world back into balance." 
+      },
+      { 
+        title: "I fear no Ending", 
+        text: "I know that this body is a gift on loan, but my essence is undying. I am the drop returning to the Deep; I am the spark returning to the Great Sun." 
+      }
+    ].map((item, i) => (
+      <div key={i} className="group text-center">
+        <h4 className="text-teal-400/80 font-light tracking-widest mb-3 group-hover:text-teal-300 transition-colors">
+          {item.title}
+        </h4>
+        <p className="text-slate-400 font-serif leading-relaxed italic text-lg">
+          "{item.text}"
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <div className="mt-20 text-center">
+    <div className="flex justify-center gap-4 text-teal-500/40 text-xl mb-6">
+      <span>◈</span><span>◈</span><span>◈</span>
+    </div>
+    <p className="text-white tracking-[0.6em] uppercase text-[10px] font-bold">
+      Grounded • Awakened • Sovereign
+    </p>
+  </div>
+</section><footer className="relative z-10 py-20 text-center border-t border-white/5">
         <div className="opacity-30 flex justify-center gap-8 mb-8 text-[10px] tracking-[0.5em] uppercase">
           <span>Mineral</span>
           <span>Plant</span>
