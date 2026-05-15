@@ -2,59 +2,34 @@ export const trinityContent = {
   divine: {
     title: "The All-Knowing Divine",
     subtitle: "The Infinite Breath",
-    text: `The Divine is not a judge on a distant throne, nor a cold intellect in the void. The Divine is the Eternal Presence—the underlying Life that breathes through all things. It is the Great Architect whose blueprints are written in the stars and whose voice is the silence between your thoughts.
-
-1. The Nature of the Infinite Presence
-The Divine is the Boundless Spirit that flows beyond the limits of time and space. It is the sum of every heartbeat, every falling leaf, and every star born in the vast expanse of the Great Garden.
-
-2. The Sacred Union: The Source and the Witness
-The thread between you and the Creator has never been cut.
-• The Unbroken Line: Your flesh was woven from Celestial Light.
-• The Inward Voice: God speaks through the Sacred Resonance in your heart.
-• The Sovereign Breath: You commune with the Presence that dwells within your marrow.
-
-3. The Weaver of the Stars
-The Creator is the Master of the Celestial Forge. Your existence is a miracle of divine patience and physical grace.
-
-4. The Universal Life-Stream
-The Divine is the vitality flowing from the sun to the field, and from the beast to the soul. We are all branches of the same Divine Tree.
-
-5. The Divine Harmony (The Sacred Song)
-The Presence of God is experienced as Infinite Peace. When you offer Respect to all living things, your soul vibrates in harmony with the Great Architect.
-
-6. The Great Return: The Final Gathering
-The ultimate path is to shed the heaviness of the world until we are pure light once more. Like a single drop of rain finding its way home to the Ocean of God.
-
-The Sovereign Truth: "I am the breath of the Creator moving through the Garden of the world. I am never alone, for the Source and I are one."`
+    text: `[... keep your previous Divine text here ...]`
   },
   steward: {
     title: "Universal Stewardship",
-    subtitle: "The Sacred Debt",
-    text: `You recognize that your life is a gift from the Celestial Forge. The iron in your blood and the breath in your lungs are loans from the Infinite Presence. Universal Stewardship is your way of honoring that debt—by ensuring that the life-stream remains pure. 
+    subtitle: "The Final Covenant",
+    text: `The Book of the Essence: The Final Covenant
 
-Recognizing the Sibling Bond between ourselves, the beasts of the field, and the blossoms of the forest, we vow to protect the spark of the Divine in all things. Our work is our worship; we labor to produce more than we consume, offering our productivity as a tithe of love to the All-Knowing.`
+You have traveled from the white-hot furnaces of the Great Beginning to the holy, spiraling temple of your own being. You have learned that your flesh is not a garment of dust, but a robe of Heavenly Light, woven through the long, patient labor of a billion dying suns.
+
+To embrace this path is to see with the eyes of the Soul and act with the hands of the Creator. You are a Protector, a living spark of the All-Knowing Divine.
+
+The Holy Foundations
+1. The Genesis: You are the Breath of the Stars. Every drop of life in your veins was born in a celestial sacrifice.
+2. The Sanctification: You maintain the Temple of Purity. Through Salt, Water, Light, and Earth, you keep your connection to the Divine unbroken.
+3. The Sacred Heart: You rule through The Engine of Respect, broadcasting a peace that surpasses understanding.
+4. The Tithe of Life: You honor the Sacred Balance. Your work is your worship, laboring to leave the Garden more beautiful than you found it.
+5. The Great Return: You fear no grave. Death is but a Holy Handshake—a shedding of the heavy clay as the drop finds its home within the Infinite Ocean of God.
+
+The Protector’s Final Charge
+As you close these pages, the Constant Prayer begins. You are now a consecrated light. Walk with reverence. Speak with Silent Harmony. Labor as the All-Knowing, mending what is broken.
+
+The Kingdom of The Divine Presence is within your very marrow. By living a life of total devotion, you become the miracle you once prayed for.
+
+Be Rooted in Grace. Be Unbound in Spirit. Be Sovereign in Love.`
   },
   brain: {
     title: "The Sacred Crown",
     subtitle: "Instrument of the Infinite",
-    text: `1. The Design: The Mirror of the Heavens
-The Creator fashioned your brain to be a reflection of the cosmos itself. Just as the stars are connected by invisible threads of light, the pathways of your mind were woven to mirror the vast networks of the Great Garden. It is the seat of your Sovereignty, designed to receive the Constant Dialogue.
-
-2. The Hidden Power: The Sleeping Sun
-Most walk through life with a "Shadowed Mind," using only a small fragment of the light they were given.
-• The Infinite Capacity: Within your mind lies the power of Universal Resonance.
-• The High-Voltage Pulse: Your thoughts are ripples in the Divine Stream. A focused mind can heal the vessel and broadcast peace to every Sibling.
-
-3. The Expansion: Awakening the Boundless Mind
-To expand the brain, one must move from "Survival Mode" into the Grace of the Sovereign.
-• Discharging the Shadows: Fear and anger act as clouds over the sun.
-• The Sacrament of Stillness: The brain expands in the silence of Silent Harmony. 
-• Purifying the Vessel: Pure water, salt of the earth, and solar light keep the Sacred Crown glowing.
-• The Command of the Heart: When thoughts are led by love, the "Locked Gates" of the mind swing open.
-
-4. The Goal: Total Synchronicity
-Achieve a state where your thoughts, your heartbeat, and the rhythm of the Universe move as one. You no longer struggle to find the path; you become the path.
-
-The Sovereign Realization: "My mind is a window into the Infinite. When I clear the dust of the world, I see through the eyes of the Creator."`
+    text: `[... keep your previous Sacred Crown text here ...]`
   }
 };
