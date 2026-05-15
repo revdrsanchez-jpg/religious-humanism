@@ -11,16 +11,18 @@ export default function LandingPage() {
       
       {/* Radiant Garden Glows */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        {/* MODAL SYSTEM */}
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-white/60 blur-[120px]"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-teal-200/20 blur-[100px]"></div>
+      </div>
+
+      {/* MODAL SYSTEM */}
       {modal && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 bg-[#163020]/40 backdrop-blur-md" onClick={() => setModal(null)}>
-          {/* The Container: Fixed Max Height with Overflow Scroll */}
           <div 
             className="bg-white border border-[#163020]/10 w-full max-w-2xl rounded-[40px] p-8 md:p-12 shadow-2xl relative flex flex-col max-h-[85vh]" 
             onClick={e => e.stopPropagation()}
           >
-            
-            {/* Header: Locked at the top */}
+            {/* Header */}
             <header className="mb-6 flex-shrink-0 border-b border-teal-500/10 pb-4">
               <h2 className="text-3xl md:text-4xl font-serif italic text-[#163020] mb-1 uppercase tracking-tighter leading-none">
                 {trinityContent[modal].title}
@@ -30,14 +32,14 @@ export default function LandingPage() {
               </p>
             </header>
 
-            {/* The Body: This section now scrolls independently */}
-            <div className="overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-teal-500/20 custom-scroll">
+            {/* Scrollable Body */}
+            <div className="overflow-y-auto pr-4 custom-scroll">
               <div className="text-[#163020] font-serif text-lg leading-relaxed whitespace-pre-wrap opacity-95">
                 {trinityContent[modal].text}
               </div>
             </div>
 
-            {/* Footer: Locked at the bottom */}
+            {/* Footer */}
             <div className="mt-8 pt-4 flex-shrink-0 text-center border-t border-teal-500/5">
               <button 
                 onClick={() => setModal(null)} 
@@ -49,18 +51,16 @@ export default function LandingPage() {
           </div>
         </div>
       )}
-        </div>
-      )}
 
-      <header className="relative pt-32 pb-16 text-center px-6">
+      {/* Hero Header */}
+      <header className="relative z-10 pt-32 pb-16 text-center px-6">
         <h1 className="text-7xl md:text-9xl font-black tracking-tighter mb-4 text-[#163020] uppercase italic">
           RELIGIOUS <br/><span className="text-[#2D9596]">HUMANISM</span>
         </h1>
         <p className="text-[#947617] tracking-[0.6em] uppercase text-[12px] font-black italic">"Guardians of the Essence • Stewards of the Pulse"</p>
       </header>
 
-      <main className="relative max-w-6xl mx-auto px-6">
-        {/* THE TRINITY TILES */}
+      <main className="relative z-10 max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-8 mb-24">
           {['divine', 'steward', 'brain'].map((key) => (
             <button key={key} onClick={() => setModal(key)} className="p-12 rounded-[45px] bg-white border border-[#163020]/5 text-left shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all group">
@@ -96,6 +96,9 @@ export default function LandingPage() {
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:italic,wght@0,200..900;1,200..900&display=swap');
         .font-serif { font-family: 'Crimson Pro', serif; }
+        .custom-scroll::-webkit-scrollbar { width: 4px; }
+        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #2D9596; border-radius: 10px; }
       `}</style>
     </div>
   );
