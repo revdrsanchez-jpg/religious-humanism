@@ -11,19 +11,44 @@ export default function LandingPage() {
       
       {/* Radiant Garden Glows */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-white/60 blur-[120px]"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-teal-200/20 blur-[100px]"></div>
-      </div>
-
-      {/* MODAL SYSTEM */}
+        {/* MODAL SYSTEM */}
       {modal && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#163020]/20 backdrop-blur-md" onClick={() => setModal(null)}>
-          <div className="bg-white border border-[#163020]/10 w-full max-w-xl rounded-[40px] p-12 shadow-2xl relative" onClick={e => e.stopPropagation()}>
-            <h2 className="text-4xl font-serif italic text-[#163020] mb-2 uppercase tracking-tighter">{trinityContent[modal].title}</h2>
-            <p className="text-[#947617] text-[11px] uppercase tracking-[0.5em] mb-8 font-black">{trinityContent[modal].subtitle}</p>
-            <p className="text-[#163020] italic font-serif text-xl leading-relaxed opacity-90">"{trinityContent[modal].text}"</p>
-            <button onClick={() => setModal(null)} className="mt-10 text-[10px] text-[#2D9596] uppercase font-black tracking-[0.3em] border-b-2 border-[#2D9596]/20 pb-1">✕ Close Revelation</button>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 bg-[#163020]/40 backdrop-blur-md" onClick={() => setModal(null)}>
+          {/* The Container: Fixed Max Height with Overflow Scroll */}
+          <div 
+            className="bg-white border border-[#163020]/10 w-full max-w-2xl rounded-[40px] p-8 md:p-12 shadow-2xl relative flex flex-col max-h-[85vh]" 
+            onClick={e => e.stopPropagation()}
+          >
+            
+            {/* Header: Locked at the top */}
+            <header className="mb-6 flex-shrink-0 border-b border-teal-500/10 pb-4">
+              <h2 className="text-3xl md:text-4xl font-serif italic text-[#163020] mb-1 uppercase tracking-tighter leading-none">
+                {trinityContent[modal].title}
+              </h2>
+              <p className="text-[#947617] text-[10px] uppercase tracking-[0.4em] font-black">
+                {trinityContent[modal].subtitle}
+              </p>
+            </header>
+
+            {/* The Body: This section now scrolls independently */}
+            <div className="overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-teal-500/20 custom-scroll">
+              <div className="text-[#163020] font-serif text-lg leading-relaxed whitespace-pre-wrap opacity-95">
+                {trinityContent[modal].text}
+              </div>
+            </div>
+
+            {/* Footer: Locked at the bottom */}
+            <div className="mt-8 pt-4 flex-shrink-0 text-center border-t border-teal-500/5">
+              <button 
+                onClick={() => setModal(null)} 
+                className="px-10 py-3 rounded-full bg-[#163020] text-white text-[10px] uppercase font-black tracking-widest hover:bg-[#2D9596] transition-all shadow-md"
+              >
+                ✕ Close Revelation
+              </button>
+            </div>
           </div>
+        </div>
+      )}
         </div>
       )}
 
